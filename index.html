@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Système Immunitaire</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="quiz-header">
+            <h1><i class="fas fa-shield-virus"></i> ChampioQuiz</h1>
+            <p class="subtitle">Testez vos connaissances sur le système immunitaire</p>
+            <div class="points-container">
+                <span class="points-label">Points: </span>
+                <span id="points-value">0</span>
+            </div>
+        </div>
+        
+        <div class="question-card">
+            <div class="question-number">Question <span id="current-question">1</span><span class="total-questions">/5</span></div>
+            <div class="question-text">
+                <h2>Quel type de cellule est responsable de la production d'anticorps dans le système immunitaire humain?</h2>
+            </div>
+            
+            <div class="options-container">
+                <div class="option" data-correct="false">
+                    <span class="option-letter">A</span>
+                    <span class="option-text">Les macrophages</span>
+                </div>
+                <div class="option" data-correct="true">
+                    <span class="option-letter">B</span>
+                    <span class="option-text">Les lymphocytes B</span>
+                </div>
+                <div class="option" data-correct="false">
+                    <span class="option-letter">C</span>
+                    <span class="option-text">Les neutrophiles</span>
+                </div>
+                <div class="option" data-correct="false">
+                    <span class="option-letter">D</span>
+                    <span class="option-text">Les lymphocytes T cytotoxiques</span>
+                </div>
+            </div>
+            
+            <div class="feedback-container hidden">
+                <div class="feedback correct hidden">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Bravo! Les lymphocytes B sont effectivement responsables de la production d'anticorps.</p>
+                </div>
+                <div class="feedback incorrect hidden">
+                    <i class="fas fa-times-circle"></i>
+                    <p>Incorrect. Ce sont les lymphocytes B qui produisent les anticorps dans le système immunitaire.</p>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <button id="hint-btn" class="btn hint-btn">Indice <span class="hint-cost">(5 pts)</span></button>
+                <button id="validate-btn" class="btn">Valider ma réponse</button>
+                <button id="next-btn" class="btn hidden">Question suivante</button>
+            </div>
+        </div>
+        
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress" style="width: 20%;"></div>
+            </div>
+        </div>
+        
+        <div class="quiz-footer">
+            <p>Développé avec <i class="fas fa-heart"></i> pour les passionnés de biologie</p>
+        </div>
+    </div>
+
+    <div class="particles-container">
+        <!-- Les particules seront générées par JavaScript -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
