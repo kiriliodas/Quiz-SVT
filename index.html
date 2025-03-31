@@ -11,11 +11,24 @@
 <body>
     <div class="quiz-container">
         <div class="quiz-header">
-             <h1><i class="fas fa-shield-virus"></i> Quiz Svt</h1>
+            <h1><i class="fas fa-shield-virus"></i> Quiz SVT</h1>
             <p class="subtitle">Testez vos connaissances sur le système immunitaire</p>
             <div class="points-container">
                 <span class="points-label">Points: </span>
                 <span id="points-value">0</span>
+            </div>
+            <div class="theme-toggle">
+                <button id="theme-toggle-btn" class="theme-btn theme-icon-btn">
+                    <div class="theme-icon-container">
+                        <div class="sun-icon-wrapper">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="moon-icon-wrapper">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                    </div>
+                </button>
+                <button id="settings-btn" class="theme-btn"><i class="fas fa-cog"></i></button>
             </div>
         </div>
         
@@ -75,6 +88,60 @@
 
     <div class="particles-container">
         <!-- Les particules seront générées par JavaScript -->
+    </div>
+
+    <!-- Modal des paramètres -->
+    <div class="settings-modal" id="settings-modal">
+        <div class="settings-content">
+            <div class="settings-header">
+                <h3>Paramètres</h3>
+                <button id="close-settings" class="close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="settings-body">
+                <div class="setting-group">
+                    <label>Couleur principale:</label>
+                    <div class="color-options">
+                        <button class="color-option" data-color="#6c63ff" style="background-color: #6c63ff;"></button>
+                        <button class="color-option" data-color="#ff5722" style="background-color: #ff5722;"></button>
+                        <button class="color-option" data-color="#2196f3" style="background-color: #2196f3;"></button>
+                        <button class="color-option" data-color="#9c27b0" style="background-color: #9c27b0;"></button>
+                        <button class="color-option" data-color="#009688" style="background-color: #009688;"></button>
+                        <button class="color-option" data-color="#e91e63" style="background-color: #e91e63;"></button>
+                        <button class="color-option" data-color="#ff9800" style="background-color: #ff9800;"></button>
+                        <button class="color-option" data-color="#4caf50" style="background-color: #4caf50;"></button>
+                        <button class="color-option" data-color="#795548" style="background-color: #795548;"></button>
+                        <button class="color-option" data-color="#607d8b" style="background-color: #607d8b;"></button>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <label>Mode d'affichage:</label>
+                    <div class="theme-switch-wrapper">
+                        <div class="theme-switch">
+                            <div class="switch-icons">
+                                <svg class="sun-icon" viewBox="0 0 24 24" width="24" height="24">
+                                    <circle cx="12" cy="12" r="5" fill="currentColor"></circle>
+                                    <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+                                    <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+                                    <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+                                    <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+                                </svg>
+                                <svg class="moon-icon" viewBox="0 0 24 24" width="24" height="24">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"></path>
+                                </svg>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="theme-toggle">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
