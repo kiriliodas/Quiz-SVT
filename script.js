@@ -402,7 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const particleShapes = ['circle', 'triangle', 'square'];
         
         // Créer 50 particules
-        for (let i = 0; i < 10000; i++) {
+        for (let i = 0; i < 200; i++) {
             const particle = document.createElement('div');
             particle.classList.add('particle');
             
