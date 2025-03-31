@@ -11,6 +11,26 @@
     --error-color: #f44336;
     --shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     --border-radius: 12px;
+    --modal-bg: #ffffff;
+    --modal-text: #333333;
+    --modal-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    --switch-bg: #e0e0e0;
+    --switch-circle: #ffffff;
+}
+
+/* Mode sombre */
+[data-theme="dark"] {
+    --primary-color: var(--user-primary-color, #6c63ff);
+    --background-color: #1a1a2e;
+    --card-color: #252541;
+    --text-color: #e0e0e0;
+    --light-text: #a0a0a0;
+    --shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    --modal-bg: #252541;
+    --modal-text: #e0e0e0;
+    --modal-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    --switch-bg: #444464;
+    --switch-circle: #6c63ff;
 }
 
 /* Reset et styles de base */
@@ -348,6 +368,287 @@ body {
 
 .quiz-footer i {
     color: #ff5e5e;
+}
+
+/* Boutons de thème et paramètres */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.theme-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.theme-btn:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Bouton de thème soleil/lune */
+.theme-icon-btn {
+    overflow: hidden;
+    position: relative;
+}
+
+.theme-icon-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sun-icon-wrapper, .moon-icon-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.sun-icon-wrapper {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+}
+
+.moon-icon-wrapper {
+    opacity: 0;
+    transform: translateY(30px) rotate(-30deg);
+}
+
+/* État actif pour le thème sombre */
+[data-theme="dark"] .sun-icon-wrapper {
+    opacity: 0;
+    transform: translateY(-30px) rotate(30deg);
+}
+
+[data-theme="dark"] .moon-icon-wrapper {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+}
+
+/* Modal des paramètres */
+.settings-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.settings-modal.active {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.settings-content {
+    background-color: var(--modal-bg);
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 500px;
+    box-shadow: var(--modal-shadow);
+    overflow: hidden;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.settings-modal.active .settings-content {
+    transform: scale(1);
+}
+
+.settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.settings-header h3 {
+    margin: 0;
+    color: var(--modal-text);
+    font-size: 1.3rem;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--light-text);
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: var(--accent-color);
+}
+
+.settings-body {
+    padding: 20px;
+}
+
+.setting-group {
+    margin-bottom: 25px;
+}
+
+.setting-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--modal-text);
+    font-weight: 600;
+}
+
+/* Options de couleur */
+.color-options {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.color-option {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.color-option:hover {
+    transform: scale(1.1);
+}
+
+.color-option.active {
+    border-color: var(--text-color);
+    transform: scale(1.1);
+}
+
+/* Switch de thème */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.theme-switch {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.switch-icons {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.sun-icon, .moon-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--light-text);
+    transition: all 0.3s ease;
+}
+
+.sun-icon {
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.moon-icon {
+    animation: pulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+    from { transform: scale(1); opacity: 0.7; }
+    to { transform: scale(1.1); opacity: 1; }
+}
+
+/* Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--switch-bg);
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--switch-circle);
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--primary-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
 }
 
 /* Particules d'arrière-plan */
