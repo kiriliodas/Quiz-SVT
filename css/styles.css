@@ -1,3 +1,8 @@
+/* Importer les autres fichiers CSS */
+@import url("components.css");
+@import url("animations.css");
+@import url("responsive.css");
+
 /* Variables globales */
 :root {
   --primary-color: #6c63ff;
@@ -52,8 +57,3 @@ body {
   position: relative;
   overflow-x: hidden;
 }
-
-/* Importer les autres fichiers CSS */
-@import url("components.css");
-@import url("animations.css");
-@import url("responsive.css");
