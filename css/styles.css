@@ -1,0 +1,59 @@
+/* Variables globales */
+:root {
+  --primary-color: #6c63ff;
+  --secondary-color: #4caf50;
+  --accent-color: #ff5722;
+  --background-color: #f9f9ff;
+  --card-color: #ffffff;
+  --text-color: #333333;
+  --light-text: #777777;
+  --success-color: #4caf50;
+  --error-color: #f44336;
+  --shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  --border-radius: 12px;
+  --modal-bg: #ffffff;
+  --modal-text: #333333;
+  --modal-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  --switch-bg: #e0e0e0;
+  --switch-circle: #ffffff;
+}
+
+/* Mode sombre */
+[data-theme="dark"] {
+  --primary-color: var(--user-primary-color, #6c63ff);
+  --background-color: #1a1a2e;
+  --card-color: #252541;
+  --text-color: #e0e0e0;
+  --light-text: #a0a0a0;
+  --shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  --modal-bg: #252541;
+  --modal-text: #e0e0e0;
+  --modal-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  --switch-bg: #444464;
+  --switch-circle: #6c63ff;
+}
+
+/* Reset et styles de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Importer les autres fichiers CSS */
+@import url("components.css");
+@import url("animations.css");
+@import url("responsive.css");

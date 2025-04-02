@@ -1,0 +1,73 @@
+/* Styles responsifs */
+
+/* Pour les tablettes */
+@media (max-width: 768px) {
+  .quiz-container {
+    width: 90%;
+    max-width: 600px;
+  }
+  
+  .quiz-header h1 {
+    font-size: 2rem;
+  }
+  
+  .question-text h2 {
+    font-size: 1.2rem;
+  }
+  
+  .option {
+    padding: 12px;
+  }
+}
+
+/* Pour les mobiles */
+@media (max-width: 480px) {
+  .quiz-container {
+    width: 95%;
+    max-width: none;
+  }
+  
+  .quiz-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .quiz-header .subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .question-text h2 {
+    font-size: 1.1rem;
+  }
+  
+  .option {
+    padding: 10px;
+  }
+  
+  .option-letter {
+    width: 25px;
+    height: 25px;
+    font-size: 0.9rem;
+  }
+  
+  .option-text {
+    font-size: 0.9rem;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+  
+  .settings-content {
+    width: 90%;
+    padding: 15px;
+  }
+  
+  .color-options {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
